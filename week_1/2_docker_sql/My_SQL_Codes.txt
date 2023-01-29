@@ -1,0 +1,32 @@
+SELECT COUNT(*)
+FROM green_taxi_trips
+WHERE CAST(lpep_pickup_datetime AS DATE) = DATE('2019-01-15') 
+AND CAST(lpep_dropoff_datetime AS DATE) = DATE('2019-01-15')
+
+SELECT SUM(trip_distance) AS distance_covered, lpep_pickup_datetime
+FROM green_taxi_trips
+GROUP BY lpep_pickup_datetime
+ORDER BY 1 DESC
+
+SELECT trip_distance, lpep_pickup_datetime
+FROM green_taxi_trips
+ORDER BY trip_distance DESC
+
+SELECT COUNT(*), passenger_count
+FROM green_taxi_trips
+WHERE CAST(lpep_pickup_datetime AS DATE) = DATE('2019-01-01') AND passenger_count BETWEEN 2 AND 3
+GROUP BY passenger_count 
+
+WITH pick_up AS (SELECT gt.index, gt.tip_amount, gt."PULocationID", gt."DOLocationID", tz."Zone" AS po_zone
+FROM public.green_taxi_trips AS gt JOIN
+public.taxi_zones AS tz ON gt."PULocationID" = tz."LocationID"
+WHERE tz."Zone" = 'Astoria'),
+drop_off AS (SELECT gtr.index, tzr."Zone" AS do_zone
+FROM public.green_taxi_trips AS gtr JOIN
+public.taxi_zones AS tzr ON gtr."DOLocationID" = tzr."LocationID")
+
+SELECT * 
+FROM pick_up LEFT JOIN drop_off 
+ON pick_up.index = drop_off.index 
+ORDER BY pick_up.tip_amount DESC
+LIMIT 1
