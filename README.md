@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 Welcome to your new dbt project!
 
 ### Using the starter project
@@ -17,3 +18,6 @@ Try running the following commands:
 =======
 # data_engineering_camp
 >>>>>>> 701196265154860a53c9d76d1610ee23d801fab4
+=======
+# data_engineering_camp
+>>>>>>> 80533b5c53c5c26d0fd4420f011c52c698590c3a
