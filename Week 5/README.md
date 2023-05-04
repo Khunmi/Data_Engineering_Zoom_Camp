@@ -17,7 +17,7 @@ Pysaprk - Triggered Spark jobs within Google cloud storage using the following c
         --input_data=gs://dtc_data_lake_khunmi-academy-376002/capstone/ \
         --output=trips_data_all.capstone2023'''
 
-Google Data Studio: To generate insight from my dataset, I connected my data source located in my data warehouse(Bigquery).
+Google Data Studio: To generate insights from my dataset, I connected my data source located in my data warehouse(Bigquery). Have a look at my dashboard link here https://lookerstudio.google.com/reporting/d7164b60-c4ee-4c65-937d-d10a23b1a75d
 
 ### Dataset
 
