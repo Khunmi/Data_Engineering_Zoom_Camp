@@ -1,23 +1,52 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-Welcome to your new dbt project!
+## Capstone Project: Batch Processing- No-Show Appointment Dataset
 
-### Using the starter project
+## Documentation and Project Files
+All files for peer review are contained in folde 'Week 5'
 
-Try running the following commands:
-- dbt run
-- dbt test
+## Objective 
+To satisfy an end to end data engineering life cycle.
+
+### Files and Tools used
+* GCS - google cloud storage for data lake
+
+* capstone_proj.py - This script reads csv data from GCS and transforms it using Spark. Finally it writes the output dataset to a table called "capstone2023" as a Parquet file in Bigquery
+
+* Pyspark - Triggered Spark jobs within Google cloud storage using the following code snippet via the command line interface 
+
+''' gcloud dataproc jobs submit pyspark \
+    --cluster=de-zoomcamp-cluster \
+    --region=northamerica-northeast2 \
+    --project=khunmi-academy-376002 \
+    --jars=gs://spark-lib/bigquery/spark-bigquery-latest_2.12.jar \
+    gs://dtc_data_lake_khunmi-academy-376002/code/capstone_proj.py \
+    -- \
+        --input_data=gs://dtc_data_lake_khunmi-academy-376002/capstone/ \
+        --output=trips_data_all.capstone2023 '''
+
+* Google Data Studio: To generate insights from my dataset, I connected my data source located in my data warehouse(Bigquery). Have a look at my dashboard link here https://lookerstudio.google.com/reporting/d7164b60-c4ee-4c65-937d-d10a23b1a75d
+
+### Dataset
+
+This dataset collects information from 100k medical appointments in Brazil and is focused on the
+question of whether or not patients show up for their appointment. A number of characteristics
+about the patient are included in each row.‘ScheduledDay’ tells us on what day the patient setup their appointment.‘Neighborhood’ indicates the location of the hospital.‘Scholarship’ indicates whether or not the patient is enrolled in Brasilian welfare program Bolsa Família:
+
+        Variable                Data_ Type
+    1. PatientId                   float64
+    2. Appointment                 IDint64
+    3. Gender                       object
+    4. ScheduledDay                 object
+    5. AppointmentDay               object
+    6. Age                           int64
+    7. Neighbourhood                object
+    8. Scholarship                   int64
+    9. Hipertension                  int64
+    10. Diabetes                     int64
+    11. Alcoholism                   int64
+    12. Handcap                      int64
+    13. SMS_received                 int64
+    14. No-show                     object
 
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [dbt community](http://community.getbdt.com/) to learn from other analytics engineers
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
-=======
-# data_engineering_camp
->>>>>>> 701196265154860a53c9d76d1610ee23d801fab4
-=======
-# data_engineering_camp
->>>>>>> 80533b5c53c5c26d0fd4420f011c52c698590c3a
+
+## Other files in this repo details on interacting with ETL processes and getting comfortable with orchestrating, Ifrastructure as code and many others.

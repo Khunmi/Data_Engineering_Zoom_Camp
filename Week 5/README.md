@@ -1,12 +1,18 @@
-## Capstone Project: Batch Processing
+## Capstone Project: Batch Processing- No-Show Appointment Dataset
+
+## Documentation and Project Files
+All files for peer review are contained in folde 'Week 5'
 
 ## Objective 
-To satify an end to end data engineering life cycle.
+To satisfy an end to end data engineering life cycle.
 
-### Files and Tech Stack used
-GCS - google cloud storage for data storing
-capstone_proj.py - This script reads csv data from GCS and transforms it using Spark. Finally it writes the output dataset to a table called "capstone2023" as a Parquet file in Bigquery
-Pysaprk - Triggered Spark jobs within Google cloud storage using the following code snippet via the command line interface 
+### Files and Tools used
+* GCS - google cloud storage for data lake
+
+* capstone_proj.py - This script reads csv data from GCS and transforms it using Spark. Finally it writes the output dataset to a table called "capstone2023" as a Parquet file in Bigquery
+
+* Pyspark - Triggered Spark jobs within Google cloud storage using the following code snippet via the command line interface 
+
 ''' gcloud dataproc jobs submit pyspark \
     --cluster=de-zoomcamp-cluster \
     --region=northamerica-northeast2 \
@@ -15,9 +21,9 @@ Pysaprk - Triggered Spark jobs within Google cloud storage using the following c
     gs://dtc_data_lake_khunmi-academy-376002/code/capstone_proj.py \
     -- \
         --input_data=gs://dtc_data_lake_khunmi-academy-376002/capstone/ \
-        --output=trips_data_all.capstone2023'''
+        --output=trips_data_all.capstone2023 '''
 
-Google Data Studio: To generate insights from my dataset, I connected my data source located in my data warehouse(Bigquery). Have a look at my dashboard link here https://lookerstudio.google.com/reporting/d7164b60-c4ee-4c65-937d-d10a23b1a75d
+* Google Data Studio: To generate insights from my dataset, I connected my data source located in my data warehouse(Bigquery). Have a look at my dashboard link here https://lookerstudio.google.com/reporting/d7164b60-c4ee-4c65-937d-d10a23b1a75d
 
 ### Dataset
 
